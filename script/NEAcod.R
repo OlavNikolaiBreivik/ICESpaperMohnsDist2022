@@ -74,6 +74,7 @@ dev.off()
 #Scenarios with assumtion violations. Run the following lines, and then the script "potsStrength.R"
 nsim = 210
 nsimSave = 200
+
 #M*3
 scaleM = seq(1,3,length.out = nya+1)
 retsM3 = mohnsDist(ret,seed = 123,nsim = nsim,ncores = ncores, rec.years = ret[[nya]]$data$years,
@@ -90,10 +91,9 @@ saveMohnsSamples(retsM05,file = "results/NEACodM05.txt",nsim = nsimSave)
 print(paste0("proportion converged: ", length(retsM05)/nsim))
 
 #Q*3
-scaleQ = seq(1,6,length.out = nya+1)
-whichQScale = c(4)
+scaleQ = seq(1,3,length.out = nya+1)
 retsQ3 = mohnsDist(ret,seed = 123,nsim = nsim,ncores = ncores, rec.years = ret[[nya]]$data$years,
-                   scaleQ = scaleQ,whichQScale = whichQScale)
+                   scaleQ = scaleQ)
 saveMohnsSamples(retsQ3,file = "results/NEACodQ3.txt",nsim = nsimSave)
 print(paste0("proportion converged: ", length(retsQ3)/nsim))
 
